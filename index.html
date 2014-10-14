@@ -2,10 +2,9 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Yeah!</title>
+	<title>Map FILTER APP</title>
 	<script src='http://maps.google.com/maps/api/js?sensor=true'></script>
-	<script src='js/gmaps.js'></script>
-	<link rel="stylesheet" href="css/main.css" media="all">
+	<link rel="stylesheet" href="css/app.css" media="all">
 
 </head>
 <body>
@@ -24,7 +23,7 @@
 						<option value='<%= optionName %>'><%= optionName %></option>
 					</script>
 					<input type="text" id="searchTitle" class="search-query span4" placeholder="search">
-					<button class="btn reset">Reset</button>
+					<button class="btn btn-default reset">Reset</button>
 				</form>
 			
 			</div><!-- row -->
@@ -56,7 +55,7 @@
 			<% } %>
 		</ul>
 		( Lat: <%= lat %> - Lon: <%= lon %>) 
-		<button>Delete</button>
+		<button class="btn btn-danger">Delete</button>
 		
 		</script>
 	</div><!-- orteView -->
@@ -65,9 +64,9 @@
 			<input type="text" class="span2 title" placeholder="Title">
 			<input type="text" class="span2 lat" placeholder="Latitude">
 			<input type="text" class="span2 lon" placeholder="Longlitude">  
-			<button type="submit" class="btn">Add Location</button>
-			<a href="#" class="btn" id="showAll"><i class="icon-eye-open"></i>Show All Markers</a>			
-			<a href="#" class="btn" id="removeAll"><i class="icon-eye-close"></i> Remove All Markers</a></div>
+			<button type="submit" class="btn btn-default">Add Location</button>
+			<a href="#" class="btn btn-default" id="showAll"><i class="icon-eye-open"></i>Show All Markers</a>			
+			<a href="#" class="btn btn-default" id="removeAll"><i class="icon-eye-close"></i> Remove All Markers</a></div>
 		</form>
 	</div><!-- mapActions -->
 
@@ -76,16 +75,19 @@
 
 
 
-	<script  src="js/underscore.js"></script>
-	<script  src="js/jquery.js"></script>
-	<script  src="js/backbone.js"></script>
-	<script  src="js/deep-model.min.js"></script>
-	<script  src="js/backbone-validation.js"></script>
-	<script  src="js/backbone-query.min.js"></script>
-	<script  src="js/query-engine.js"></script>	
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
-	<script  src="js/main.min.js"></script>
+<!--
+	<script  src="script/underscore.js"></script>
+	<script  src="script/jquery.js"></script>
+	<script  src="script/backbone.js"></script>
+	<script  src="script/deep-model.min.js"></script>
+	<script  src="script/backbone-validation.js"></script>
+	<script  src="script/backbone-query.min.js"></script>
+	<script  src="script/query-engine.js"></script>	
+	<script  src="script/bootstrap.min.js"></script>
+	<script  src="script/bootstrap-multiselect.js"></script>
+	<script  src="script/main.min.js"></script>
+-->
+	<script  src="js/app.min.js"></script>
 
 </body>
 </html>		

@@ -1,5 +1,17 @@
-	
-		(function() {
+// @codekit-prepend 'gmaps.js'
+// @codekit-prepend 'underscore.js'
+// @codekit-prepend 'jquery.js'
+
+// @codekit-prepend 'backbone.js'
+// @codekit-prepend 'deep-model.min.js'
+// @codekit-prepend 'backbone-query.min.js'
+
+// @codekit-prepend 'bootstrap.js'
+// @codekit-prepend 'bootstrap-multiselect.js'
+
+
+
+(function() {
 	
 	//create a namespace
 
@@ -12,9 +24,6 @@
 		return _.template($('#' + id).html());
 	};
     
-
-
-
 	// ################################
 	// ######### GLOBAL EVENTS ########
 	// ################################
@@ -86,6 +95,8 @@
 
 	MapApp.activateMultiselect = function () {
 		$("select.multiselect").val([]);
+        
+        
 		$('.multiselect').multiselect({
 			buttonClass: 'btn',
 			buttonWidth: 'auto',
@@ -308,8 +319,10 @@
 		initialize: function () {
 			// console.log('initialized Single Filter View');
 			this.$el.attr( "data-name", MapApp.filterList[this.options.index] );
+            this.$el.attr( 'multiple', 'multiple');
 		},
 		render: function () {
+            
 			this.renderFilters();
 			this.renderallOptions();
 		},
