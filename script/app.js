@@ -20,6 +20,7 @@
 		Collections: {},
 		Views: {}
 	};
+    
 	window.template = function (id) {
 		return _.template($('#' + id).html());
 	};
@@ -188,7 +189,6 @@
 			lat: 51.511214,
 			lon: -0.119824,
 			title: 'im am the default Title',
-			logo: 'http://lorempixel.com/80/80/people/',
 			link: 'http://www.google.de'
 		},
 		sync: function () { return false; },
@@ -314,7 +314,7 @@
 
 	MapApp.Views.Filter = Backbone.View.extend({
 		tagName: 'select',
-		className: 'span2 multiselect',
+		className: 'col-md-2 multiselect',
 		template: template('filterTemplate'),
 		initialize: function () {
 			// console.log('initialized Single Filter View');
@@ -362,7 +362,7 @@
 	
 	MapApp.Views.Filters = Backbone.View.extend({
 		tagName: 'div', 
-		className: 'filters',
+		className: 'filters col-md-6',
 		initialize: function () {
 			MapApp.vents.on('selectChanged', this.updateQueryObject, this);
 			// this.collection.on('add', this.update, this);
@@ -524,7 +524,7 @@
 			var newTitle = $(e.currentTarget).find('input.title').val();
 			var newLat = $(e.currentTarget).find('input.lat').val();
 			var newLon = $(e.currentTarget).find('input.lon').val();
-			// if(! $.trim(newTitle) ) return "title must not be empty!";
+			if(! $.trim(newTitle) ) return "title must not be empty!";
 			var location = new MapApp.Models.Locations();
 			location.set({title: newTitle, lat: newLat, lon: newLon});
 			this.collection.add(location);
@@ -567,86 +567,7 @@
 	//########## CREATE VIEWS AND COLLECTIONS
 	//########################################
 
-	MapApp.locationsCollection = new MapApp.Collections.Locations([
-		{	
-			id: 0,
-			title: "Experience & Living Lab Berlin",
-			lat: 52.519171,
-			lon: 13.406091, 
-			logo: "http://lorempixel.com/g/80/80/nature/",
-			filterable: {
-				Node: ['Berlin'],
-				Field: ['Smart Energy Systems'],
-				Services: ['Service1','Service2','Service3','Service4'],
-				Type: ['Office']
-			},
-			link: 'http://www.google.de'
-
-		},
-		{
-			id: 1,
-			title: "Experience & Living Lab Trento", 
-			lat: 46.069692, 
-			lon: 11.12108,
-			logo: "http://lorempixel.com/g/80/80/sports/",
-			filterable: {
-				Node: ['Trento'],
-				Field: ['Networking Solutions for Future Media'],
-				Services: ['Service1','Service2','Service3','Service4'],
-				Type: ['Office','Hackspace']
-			},
-			link: 'http://www.google.de'
-		},
-		{
-			id: 2,
-			title: "Experience & Living Lab Helsinki", 
-			lat: 60.169845, 
-			lon: 24.938551,
-			logo: "http://lorempixel.com/g/80/80/cats/",
-			filterable: {
-				Node: ['Helsinki'],
-				Field: ['Computing in the Cloud','Smart Spaces'],
-				Services: ['Service1','Service2','Service3','Service4'],
-				Type: ['University']
-			},
-			link: 'http://www.google.de'
-
-		},
-		{
-			id: 3,
-			title: "Experience & Living Lab Eindhoven", 
-			lat: 51.441642, 
-			lon: 5.469723,
-			logo: "http://lorempixel.com/g/80/80/abstract/",
-			filterable: {
-				Node: ['Eindhoven'],
-				Field: ['Health & Wellbeing', 'Smart Energy Systems'],
-				Services: ['Service1','Service2','Service3','Service4'],
-				Type: ['Lab']
-			},
-			link: 'http://www.google.de'
-		},
-		{	
-			id: 4,
-			title: "New Lab Berlin",
-			lat: 53.519171,
-			lon: 14.406091, 
-			logo: "http://lorempixel.com/g/80/80/nature/",
-			filterable: {
-				Node: ['Berlin', 'Hamburg'],
-				Field: ['Computing in the Cloud', 'Smart Energy Systems','Health & Wellbeing'],
-				Services: ['Service1','Service2','Service3','All Services'],
-				Type: ['Office', 'Lab', 'Other']
-			},
-			link: 'http://www.google.de'
-
-		},
-		{
-			id: 5,
-			tags: ['jquery', 'html5', 'backbone'],
-			filterable: {}
-		}
-	]);
+	MapApp.locationsCollection = new MapApp.Collections.Locations(data);
 
 
 	MapApp.initialLocationsCollection = new MapApp.Collections.Locations(MapApp.locationsCollection.toJSON());
